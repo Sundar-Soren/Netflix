@@ -38,4 +38,6 @@ router.get("/related", getRandomRelatedMovie);
 
 router.route("/movies").get(getAllMovies);
 
+//Realated Random Movie
+
 module.exports = router;

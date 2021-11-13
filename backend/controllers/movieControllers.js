@@ -87,7 +87,6 @@ exports.deleteMovie = async (req, res) => {
   }
 };
 exports.getMovie = async (req, res) => {
-  console.log(req.params);
   try {
     const movie = await Movie.findById(req.params.id);
     res.json(movie);
@@ -102,7 +101,6 @@ exports.getMovie = async (req, res) => {
 //Get Random MOVIE || SERIES
 
 exports.getRandomMovie = async (req, res) => {
-  console.log("Hey I worked");
   const type = req.query.type;
   let movie;
   try {
@@ -133,12 +131,12 @@ exports.getRandomRelatedMovie = async (req, res) => {
     if (type === "series") {
       movie = await Movie.aggregate([
         { $match: { isSeries: true } },
-        { $sample: { size: 8 } },
+        { $sample: { size: 12 } },
       ]);
     } else {
       movie = await Movie.aggregate([
         { $match: { isSeries: false } },
-        { $sample: { size: 8 } },
+        { $sample: { size: 12 } },
       ]);
     }
     res.json(movie);

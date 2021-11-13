@@ -3,9 +3,9 @@ import "./featured.scss";
 import { Link } from "react-router-dom";
 import { PlayArrow, InfoOutlined } from "@material-ui/icons";
 import Navbar from "../navbar/Navbar";
+import List from "../list/List";
 import axios from "axios";
-const Featured = () => {
-  const clickedItem = false;
+const Featured = ({ clickedItem }) => {
   const [content, setContent] = useState({});
 
   useEffect(() => {
@@ -86,10 +86,8 @@ const Featured = () => {
               <span className="desc">{content.desc}</span>
               <div className="buttons">
                 <Link
-                  to={{
-                    pathname: `/watch/${content._id}`,
-                    state: `${content.video}`,
-                  }}
+                  to={`/movie/watch/${content._id}`}
+                  state={content.video}
                   className="link"
                 >
                   <button className="play">
@@ -104,6 +102,7 @@ const Featured = () => {
           </>
         )}
       </div>
+      <List />
     </>
   );
 };

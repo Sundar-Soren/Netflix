@@ -1,14 +1,13 @@
 .watch {
-  height: max-content;
+  height: 100%;
   width: 100%;
-  padding: 1rem 2rem;
+  padding-top: 4.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   .videoContainer {
-    height: 90vh;
+    height: max-content;
     width: 90%;
-    position: relative;
 
     video {
       height: 100%;

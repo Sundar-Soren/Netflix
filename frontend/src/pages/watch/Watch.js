@@ -3,7 +3,7 @@ import "./watch.scss";
 import List from "../../components/list/List";
 import { useLocation, useParams } from "react-router-dom";
 
-const Watch = ({ wvideo }) => {
+const Watch = () => {
   const video = useLocation();
   return (
     <>

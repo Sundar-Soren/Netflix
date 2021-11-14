@@ -3,12 +3,14 @@ import "./navbar.scss";
 import { Link } from "react-router-dom";
 import { Search, Notifications } from "@material-ui/icons";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import { logout } from "../../context/action/userAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
-  const user = true;
   const [isScrolled, setIsScrolled] = useState(false);
 
-  //   const { user, dispatch } = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.user);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -18,8 +20,7 @@ const Navbar = () => {
   };
 
   const handleLogOut = () => {
-    // localStorage.removeItem("netflix-user");
-    // dispatch(logOut());
+    dispatch(logout());
   };
 
   return (
@@ -57,7 +58,7 @@ const Navbar = () => {
               <div className="options">
                 <span>Setting</span>
 
-                {user && <span onClick={handleLogOut}>Log Out</span>}
+                {isAuthenticated && <span onClick={handleLogOut}>Log Out</span>}
               </div>
             </div>
           </div>

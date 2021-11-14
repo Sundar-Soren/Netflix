@@ -97,6 +97,8 @@ exports.login = async (req, res) => {
   }
 };
 
+//Logout User
+
 exports.userLogout = (req, res) => {
   res.cookie("token", null, {
     expires: new Date(Date.now()),
@@ -106,7 +108,6 @@ exports.userLogout = (req, res) => {
     message: "Logged Out Successfully",
   });
 };
-
 // exports.isLogin = expressJwt({
 //   secret: process.env.SECRET_KEY,
 //   userProperty: "auth",

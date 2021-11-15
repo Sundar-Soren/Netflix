@@ -2,13 +2,29 @@ import React from "react";
 import "./signup3.scss";
 import { Link } from "react-router-dom";
 import SignupNavbar from "./SignupNavbar";
+import { useSelector } from "react-redux";
 const Signup3 = () => {
+  const { user, isAuthenticated } = useSelector((state) => state.user);
   return (
     <>
       <SignupNavbar />
       <div className="signup3">
-        <h1>Accout Create Successfully</h1>
-        <Link to="/">To Home</Link>
+        {user ? (
+          <>
+            <h1>Accout Create Successfully</h1>
+            <Link to="/">To Home</Link>
+          </>
+        ) : (
+          <>
+            <h1>Failed To Create Accout</h1>
+            <button
+              onClick={() => window.location.reload()}
+              className="reload-button"
+            >
+              Sign Up
+            </button>
+          </>
+        )}
       </div>
     </>
   );

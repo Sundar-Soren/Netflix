@@ -3,7 +3,7 @@ import React from "react";
 import "./signup2.scss";
 import SignupNavbar from "./SignupNavbar";
 
-const Signup2 = () => {
+const Signup2 = ({ onNext }) => {
   return (
     <>
       <SignupNavbar />
@@ -26,7 +26,7 @@ const Signup2 = () => {
             <DoneOutlined className="signup2-Icon" />
             <span>No ads and no extra fees. Ever.</span>
           </div>
-          <button>Next</button>
+          <button onClick={onNext}>Next</button>
         </div>
       </div>
     </>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./watch.scss";
 import List from "../../components/list/List";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 
 const Watch = () => {

@@ -6,4 +6,16 @@
   justify-content: center;
   flex-direction: column;
   color: #e50914;
+  .reload-button {
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.2rem;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  @media (max-width: 850px) {
+    padding: 0 1rem;
+  }
 }

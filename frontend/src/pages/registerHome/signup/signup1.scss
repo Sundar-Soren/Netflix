@@ -2,14 +2,13 @@
   height: 100vh;
   width: 100%;
   background-color: white;
-
   .signup1-container {
     height: 83%;
     display: flex;
     align-items: center;
     justify-content: center;
     div {
-      width: 25rem;
+      max-width: 22rem;
       height: max-content;
       display: flex;
       flex-direction: column;
@@ -37,6 +36,9 @@
           border: none;
           cursor: pointer;
         }
+      }
+      @media (max-width: 850px) {
+        padding: 0 0.5rem;
       }
     }
   }

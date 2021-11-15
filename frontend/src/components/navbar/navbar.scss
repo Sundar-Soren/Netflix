@@ -38,7 +38,28 @@ $main-color: #0b0b0b;
     .right {
       display: flex;
       align-items: center;
-
+      .right-search {
+        margin-right: 0.5rem;
+        display: flex;
+        align-items: center;
+        background-color: red;
+        position: relative;
+        .searchBox {
+          background-color: blue;
+          input {
+            height: 2rem;
+            width: 15rem;
+            padding: 0 0.5rem;
+          }
+        }
+        .search-btn {
+          right: 0px;
+          position: absolute;
+          color: black;
+          cursor: pointer;
+          height: 100%;
+        }
+      }
       .icon {
         margin: 15px;
       }

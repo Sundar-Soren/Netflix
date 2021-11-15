@@ -10,8 +10,9 @@ const List = ({ rParams }) => {
       try {
         const res = await axios.get("/related");
         setSMovies(res.data);
-        console.log(res.data);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error.message);
+      }
     };
     getSuggetionMovies();
   }, [rParams]);

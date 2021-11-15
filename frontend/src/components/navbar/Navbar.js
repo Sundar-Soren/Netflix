@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./navbar.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Search, Notifications } from "@material-ui/icons";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { logout } from "../../context/action/userAction";
@@ -8,10 +8,20 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [keyword, setKeyword] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isAuthenticated } = useSelector((state) => state.user);
 
+  const searchSubmitHandler = (e) => {
+    e.preventDefault();
+    if (keyword.trim()) {
+      navigate(`/movies/${keyword}`);
+    } else {
+      navigate("/");
+    }
+  };
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => {
@@ -44,9 +54,20 @@ const Navbar = () => {
             </Link>
           </div>
           <div className="right ">
-            <input type="search" />
-            <Search className="icon res" />
-            <Notifications className="icon res" />
+            <div className="right-search">
+              <form className="searchBox" onSubmit={searchSubmitHandler}>
+                <input
+                  type="search"
+                  name="search"
+                  placeholder="Search Movie..."
+                  onChange={(e) => setKeyword(e.target.value)}
+                />
+              </form>
+              <Search
+                className="icon res search-btn"
+                onClick={searchSubmitHandler}
+              />
+            </div>
             <img
               className="res"
               src="https://images.pexels.com/photos/101537/baby-boy-hat-covered-101537.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
@@ -56,7 +77,13 @@ const Navbar = () => {
             <div className="profile">
               <ArrowDropDownIcon className="icon" />
               <div className="options">
-                <span>Setting</span>
+                {!isAuthenticated && (
+                  <>
+                    <Link className="link" to="/login">
+                      <span className="option">Login</span>
+                    </Link>
+                  </>
+                )}
 
                 {isAuthenticated && <span onClick={handleLogOut}>Log Out</span>}
               </div>

@@ -23,6 +23,8 @@ const Featured = ({ clickedItem }) => {
 
   return (
     <>
+      <Navbar />
+
       <div className="featured">
         {/* {type && ( */}
         {/* <div className="category">

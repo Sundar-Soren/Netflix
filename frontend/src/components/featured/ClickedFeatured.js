@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import List from "../list/List";
+import Navbar from "../navbar/Navbar";
 import "./featured.scss";
 
 const ClickedFeatured = () => {
@@ -24,6 +25,8 @@ const ClickedFeatured = () => {
   console.log(clickedItem);
   return (
     <>
+      <Navbar />
+
       {clickedItem && (
         <div className="clickedFeatured">
           <img src={clickedItem.imgThumb} alt="Backgroud poster pic" />

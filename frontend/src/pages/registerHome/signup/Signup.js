@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./signup.scss";
 import { KeyboardArrowRight } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-const Signup = () => {
+const Signup = ({ onNext }) => {
   const user = false;
   const handleLogOut = () => {
     localStorage.removeItem("netflix-user");
@@ -37,7 +37,7 @@ const Signup = () => {
         </p>
         <div className="input">
           <input type="email" placeholder="Email Address" />
-          <button className="registerButton">
+          <button className="registerButton" onClick={onNext}>
             Get Started <KeyboardArrowRight className="SIcon" />
           </button>
         </div>

@@ -12,6 +12,7 @@ import Signup from "./pages/registerHome/signup/Signup";
 import Signup1 from "./pages/registerHome/signup/Signup1";
 import Signup2 from "./pages/registerHome/signup/Signup2";
 import Signup3 from "./pages/registerHome/signup/Signup3";
+import Register from "./pages/registerHome/Register";
 
 const App = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -39,7 +40,9 @@ const App = () => {
         <Route
           exact
           path="/signup"
-          element={!isAuthenticated ? <Signup3 /> : <Navigate replace to="/" />}
+          element={
+            !isAuthenticated ? <Register /> : <Navigate replace to="/" />
+          }
         />
       </Routes>
     </>

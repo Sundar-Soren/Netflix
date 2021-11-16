@@ -3,30 +3,37 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import List from "../list/List";
+import Loading from "../loading/Loading";
 import Navbar from "../navbar/Navbar";
 import "./featured.scss";
 
 const ClickedFeatured = () => {
   const params = useParams();
-  console.log(params.id);
   const [clickedItem, setClickedItem] = useState(null);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setLoading(true);
     const getClickedMovie = async () => {
       try {
         const res = await axios(`/movie/${params.id}`);
         setClickedItem(res.data);
+        setLoading(false);
       } catch (error) {
         console.log(error);
+        setLoading(false);
       }
     };
     getClickedMovie();
   }, [params]);
 
-  console.log(clickedItem);
   return (
     <>
       <Navbar />
-
+      {loading && (
+        <div>
+          <Loading />
+        </div>
+      )}
       {clickedItem && (
         <div className="clickedFeatured">
           <img src={clickedItem.imgThumb} alt="Backgroud poster pic" />

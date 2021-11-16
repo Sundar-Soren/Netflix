@@ -5,17 +5,21 @@ import { PlayArrow, InfoOutlined } from "@material-ui/icons";
 import Navbar from "../navbar/Navbar";
 import List from "../list/List";
 import axios from "axios";
+import Loading from "../loading/Loading";
 const Featured = ({ clickedItem }) => {
   const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const getRandomMovies = async () => {
       try {
         const res = await axios(`/random`);
-        console.log(res);
         setContent(res.data[0]);
+        setLoading(false);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
+        setLoading(true);
       }
     };
     getRandomMovies();
@@ -24,33 +28,12 @@ const Featured = ({ clickedItem }) => {
   return (
     <>
       <Navbar />
-
+      {loading && (
+        <div>
+          <Loading />
+        </div>
+      )}
       <div className="featured">
-        {/* {type && ( */}
-        {/* <div className="category">
-          <span>{type === "movie" ? "Movies" : "Series"}</span>
-          <select
-            name="genre"
-            id="genre"
-            onChange={(e) => setGenre(e.target.value)}
-          >
-            <option>Genre</option>
-            <option value="adventure">Adventure</option>
-            <option value="comedy">Comedy</option>
-            <option value="crime">Crime</option>
-            <option value="fantasy">Fantasy</option>
-            <option value="historical">Historical</option>
-            <option value="horror">Horror</option>
-            <option value="romance">Romance</option>
-            <option value="sci-fi">Sci-fi</option>
-            <option value="thriller">Thriller</option>
-            <option value="western">Western</option>
-            <option value="animation">Animation</option>
-            <option value="drama">Drama</option>
-            <option value="documentary">Documentary</option>
-          </select>
-        </div> */}
-        {/* )} */}
         {clickedItem ? (
           <>
             <img src={clickedItem.imgThumb} alt="Backgroud poster pic" />

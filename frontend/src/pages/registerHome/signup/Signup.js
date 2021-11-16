@@ -4,6 +4,7 @@ import { KeyboardArrowRight } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { EMAIL_HOLDER } from "../../../context/constants/userConstant";
+import { logout } from "../../../context/action/userAction";
 const Signup = ({ onNext }) => {
   const { user, isAuthenticated } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
@@ -14,8 +15,7 @@ const Signup = ({ onNext }) => {
     onNext();
   };
   const handleLogOut = () => {
-    localStorage.removeItem("netflix-user");
-    // dispatch(logOut());
+    dispatch(logout());
   };
   return (
     <div className="register">

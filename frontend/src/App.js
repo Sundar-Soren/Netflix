@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./context/action/userAction";
 import Register from "./pages/registerHome/Register";
 import SearchContent from "./pages/searchContent/SearchContent";
+import Loading from "./components/loading/Loading";
 
 const App = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
@@ -35,6 +36,7 @@ const App = () => {
           element={!isAuthenticated ? <Login /> : <Navigate replace to="/" />}
         />
         <Route exact path="/signup" element={<Register />} />
+        <Route exact path="/loading" element={<Loading />} />
       </Routes>
     </>
   );

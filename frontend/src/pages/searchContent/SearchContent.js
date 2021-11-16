@@ -3,18 +3,22 @@ import "./searchContent.scss";
 import ListItem from "../../components/list/listItem/ListItem";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../../components/navbar/Navbar";
+import Loading from "../../components/loading/Loading";
 const SearchContent = () => {
   const [sMovies, setSMovies] = useState([]);
   const { search } = useParams();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const getSearchMovies = async () => {
       try {
         const res = await axios.get(`/movies/?search=${search}`);
         setSMovies(res.data.movies);
+        setLoading(false);
       } catch (error) {
         console.log(error.message);
+        setLoading(false);
       }
     };
     getSearchMovies();
@@ -22,6 +26,11 @@ const SearchContent = () => {
 
   return (
     <>
+      {loading && (
+        <div>
+          <Loading />
+        </div>
+      )}
       <div className="searchContent">
         <h2>Movies</h2>
         <p>

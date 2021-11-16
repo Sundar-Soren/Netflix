@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SignupNavbar from "./SignupNavbar";
 import { useSelector } from "react-redux";
 const Signup3 = () => {
-  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const { user, isAuthenticated, error } = useSelector((state) => state.user);
   return (
     <>
       <SignupNavbar />
@@ -17,6 +17,7 @@ const Signup3 = () => {
         ) : (
           <>
             <h1>Failed To Create Accout</h1>
+            {error && <h2>{error}</h2>}
             <button
               onClick={() => window.location.reload()}
               className="reload-button"

@@ -6,13 +6,16 @@ import SignupNavbar from "./SignupNavbar";
 
 const Signup1 = ({ onNext }) => {
   const { email } = useSelector((state) => state.email);
+  const { loading } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [email1, setEmail1] = useState(email);
   const [password, setPassword] = useState("");
 
   const handleClick = () => {
     dispatch(register(email1, password));
-    onNext();
+    if (!loading) {
+      onNext();
+    }
   };
 
   return (
@@ -40,6 +43,7 @@ const Signup1 = ({ onNext }) => {
                 placeholder="Add a password"
               />
               <button onClick={handleClick}>Next</button>
+              {loading && <button onClick={handleClick}>Loading...</button>}
             </div>
           </div>
         </div>

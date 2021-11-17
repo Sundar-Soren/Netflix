@@ -1,9 +1,16 @@
 .list {
   width: 100%;
+  .list-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+  }
   .container {
     width: 95%;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    align-items: center;
+    justify-content: center;
   }
 }

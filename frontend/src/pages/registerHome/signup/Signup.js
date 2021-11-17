@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./signup.scss";
 import { KeyboardArrowRight } from "@material-ui/icons";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { EMAIL_HOLDER } from "../../../context/constants/userConstant";
 import { logout } from "../../../context/action/userAction";
 const Signup = ({ onNext }) => {
-  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
 

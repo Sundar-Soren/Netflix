@@ -16,7 +16,7 @@ const List = ({ rParams }) => {
         setSMovies(res.data);
         setLoading(false);
       } catch (error) {
-        setError(error.response.data.error);
+        setError(error.message);
         setLoading(false);
       }
     };

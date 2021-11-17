@@ -1,5 +1,5 @@
 import "./login.scss";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../../context/action/userAction";
 import { useSelector, useDispatch } from "react-redux";
@@ -7,9 +7,7 @@ const Login = () => {
   const [user, setUser] = useState({ email: "", password: "" });
 
   const dispatch = useDispatch();
-  const { isAuthenticated, error, loading } = useSelector(
-    (state) => state.user
-  );
+  const { error, loading } = useSelector((state) => state.user);
 
   const handleInput = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });

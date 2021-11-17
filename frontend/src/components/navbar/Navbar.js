@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./navbar.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, Notifications } from "@material-ui/icons";
+import { Search } from "@material-ui/icons";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { logout } from "../../context/action/userAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,19 +38,11 @@ const Navbar = () => {
       <div className={isScrolled ? "navbar scrolled" : "navbar"}>
         <div className="container">
           <div className="left">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
-              alt="Netflix Logo"
-            />
-
             <Link to="/" className="link link-style">
-              <span>Homepage</span>
-            </Link>
-            <Link to="/series" className="link link-style">
-              <span>Series</span>
-            </Link>
-            <Link to="/movies" className="link link-style">
-              <span>Movies</span>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                alt="Netflix Logo"
+              />
             </Link>
           </div>
           <div className="right ">

@@ -23,12 +23,19 @@ $main-color: #0b0b0b;
     align-items: center;
     justify-content: space-between;
     height: 70px;
+    @media (max-width: 650px) {
+      padding: 0px 10px;
+    }
     .left {
       display: flex;
       align-items: center;
       img {
         height: 30px;
         margin-right: 40px;
+        @media (max-width: 650px) {
+          height: 20px;
+          margin-right: 15px;
+        }
       }
     }
     span {
@@ -50,6 +57,9 @@ $main-color: #0b0b0b;
             height: 2rem;
             width: 15rem;
             padding: 0 0.5rem;
+            @media (max-width: 650px) {
+              width: 10rem;
+            }
           }
         }
         .search-btn {
@@ -87,12 +97,3 @@ $main-color: #0b0b0b;
     }
   }
 }
-
-// @media (max-width: 768px) {
-//   .res {
-//     display: none;
-//   }
-//   .container {
-//     justify-content: space-evenly;
-//   }
-// }

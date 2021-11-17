@@ -3,26 +3,26 @@
   height: 100vh;
   position: relative;
 
-  .category {
-    position: absolute;
-    top: 8rem;
-    left: 4rem;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: white;
-    display: flex;
-    align-items: center;
+  // .category {
+  //   position: absolute;
+  //   top: 8rem;
+  //   left: 4rem;
+  //   font-size: 1.4rem;
+  //   font-weight: 500;
+  //   color: white;
+  //   display: flex;
+  //   align-items: center;
 
-    select {
-      cursor: pointer;
-      background-color: black;
-      border: none;
-      padding: 5px;
-      font-size: 1.2rem;
-      color: white;
-      margin-left: 0.5rem;
-    }
-  }
+  //   select {
+  //     cursor: pointer;
+  //     background-color: black;
+  //     border: none;
+  //     padding: 5px;
+  //     font-size: 1.2rem;
+  //     color: white;
+  //     margin-left: 0.5rem;
+  //   }
+  // }
 
   img {
     height: 100%;
@@ -36,8 +36,8 @@
     top: 0;
     bottom: 0;
     left: 0;
-    padding: 3rem 5rem;
     display: flex;
+    padding: 5rem;
     flex-direction: column;
     background-image: linear-gradient(
       to left,
@@ -48,25 +48,33 @@
     );
 
     img {
-      padding-top: 10rem;
-      height: 50rem;
-      object-fit: contain;
       width: 100%;
+      object-fit: contain;
     }
     .movie-title {
       margin: 2rem 0.2rem;
       text-transform: capitalize;
       color: white;
       font-weight: bold;
+
+      @media (max-width: 700px) {
+        margin: 0;
+      }
     }
     .desc {
       color: white;
       margin-top: 1.2rem;
       font-size: 1.1rem;
+      @media (max-width: 700px) {
+        margin-top: 5px;
+      }
     }
     .buttons {
       padding: 5rem 0;
       display: flex;
+      @media (max-width: 700px) {
+        padding: 10px 0;
+      }
       button {
         padding: 6px 17px;
         display: flex;
@@ -91,5 +99,22 @@
         }
       }
     }
+
+    @media (max-width: 700px) {
+      width: 100%;
+      padding: 1rem;
+      bottom: 0;
+      top: 13rem;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 0, 0, 0),
+        rgba(15, 15, 15, 0.5),
+        rgb(19, 18, 18)
+      );
+    }
   }
+}
+
+.center-list {
+  background-color: red;
 }

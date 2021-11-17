@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SignupNavbar from "./SignupNavbar";
 import { useSelector } from "react-redux";
 const Signup3 = () => {
-  const { user, isAuthenticated, error } = useSelector((state) => state.user);
+  const { user, error } = useSelector((state) => state.user);
   return (
     <>
       <SignupNavbar />
